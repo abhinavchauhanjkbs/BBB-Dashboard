@@ -5,10 +5,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 const navItems = [
   { icon: LayoutDashboard, path: "/" },
   { icon: ShoppingCart, path: "/orders" },
-  { icon: Package, path: "#" },
-  { icon: Grid3X3, path: "#" },
-  { icon: Monitor, path: "#" },
-  { icon: MessageCircle, path: "#" },
+  { icon: Package, path: "/services" },
+  { icon: Grid3X3, path: "/projects" },
+  { icon: Monitor, path: "/infrastructure" },
+  { icon: MessageCircle, path: "/support" },
 ];
 
 const Sidebar = () => {
@@ -44,7 +44,14 @@ const Sidebar = () => {
       </div>
 
       <div className={`flex flex-col ${expanded ? "items-start px-4" : "items-center"} gap-1 w-full`}>
-        <button className={`${expanded ? "w-full flex items-center gap-3 px-3" : "w-10 justify-center"} h-10 rounded-xl flex items-center text-muted-foreground hover:text-foreground hover:bg-accent transition-colors`}>
+        <button
+          onClick={() => navigate("/settings")}
+          className={`${expanded ? "w-full flex items-center gap-3 px-3" : "w-10 justify-center"} h-10 rounded-xl flex items-center ${
+            location.pathname === "/settings"
+              ? "bg-primary text-primary-foreground"
+              : "text-muted-foreground hover:text-foreground hover:bg-accent"
+          } transition-colors`}
+        >
           <Settings size={20} />
         </button>
         <button

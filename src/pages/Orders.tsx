@@ -1,6 +1,7 @@
 import Sidebar from "@/components/dashboard/Sidebar";
 import { Search, Filter, Download, Plus, ChevronLeft, ChevronRight, MoreHorizontal, Settings, Bell, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const statusColors: Record<string, string> = {
   "on way": "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
@@ -27,6 +28,7 @@ const statsCards = [
 
 const Orders = () => {
   const [filters] = useState(["Laptops", "PayPal"]);
+  const navigate = useNavigate();
 
   return (
     <div className="flex min-h-screen bg-background">
@@ -37,7 +39,7 @@ const Orders = () => {
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
           <h1 className="text-xl sm:text-2xl font-bold text-foreground">Order list</h1>
           <div className="flex items-center gap-2 sm:gap-3">
-            <button className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-muted-foreground hover:bg-accent transition-colors">
+            <button onClick={() => navigate("/settings")} className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-muted-foreground hover:bg-accent transition-colors">
               <Settings size={18} />
             </button>
             <button className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-muted-foreground hover:bg-accent transition-colors">

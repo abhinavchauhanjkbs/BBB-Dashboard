@@ -1,6 +1,8 @@
 import { Search, Bell, Settings } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const TopBar = () => {
+  const navigate = useNavigate();
   return (
     <header className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 gap-3">
       <div className="flex items-center gap-4 flex-1 min-w-0">
@@ -16,7 +18,7 @@ const TopBar = () => {
 
       <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
         <span className="text-xs sm:text-sm text-muted-foreground mr-2 sm:mr-4 hidden sm:inline">Today, Mon 22 Nov</span>
-        <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent transition-colors">
+        <button onClick={() => navigate("/settings")} className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent transition-colors">
           <Settings size={18} />
         </button>
         <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent transition-colors relative">
